@@ -12,3 +12,11 @@ variable "role_name" {
   type        = string
   description = "IAM role name for EC2 instance"
 }
+
+variable "subnets" {
+  type = map(map(object({
+    cidr = string
+    az   = string
+  })))
+  description = "Map of subnet configurations per workspace"
+}

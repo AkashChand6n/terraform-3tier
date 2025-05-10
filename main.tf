@@ -12,3 +12,9 @@ module "iam_role" {
   source    = "./module/aws_iam_role"
   role_name = var.role_name
 }
+
+module "subnet" {
+  source  = "./module/subnet"
+  vpc_id  = module.vpc.vpc_id
+  subnets = var.subnets[terraform.workspace]
+}
